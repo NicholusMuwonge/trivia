@@ -11,3 +11,6 @@ venv
 .Trashes
 ehthumbs.db
 Thumbs.db
+node_modules/
+.pytest_cache
+.env
