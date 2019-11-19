@@ -47,7 +47,8 @@ class TriviaTestCase(unittest.TestCase):
 
     """
     TODO
-    Write at least one test for each test for successful operation and for expected errors.
+    Write at least one test for each test for successful 
+    operation and for expected errors.
     """
     def test_get_categories_with_success_response(self):
         response = self.client().get("/categories")
@@ -150,10 +151,13 @@ class TriviaTestCase(unittest.TestCase):
         self.assertEqual(data['success'], False)
 
     def test_get_quiz_question_with_success_response(self):
-        response = self.client().post('/quizzes',
-            content_type='application/json',
-            data=json.dumps({'previous_questions': [], 'quiz_category': {'id': 0, 'type': 'all'}}
-            )
+        response = self.client().post(
+                        '/quizzes',
+                        content_type='application/json',
+                        data=json.dumps(
+                            {'previous_questions': [], 
+                            'quiz_category': {'id': 0, 'type': 'all'}}
+                    )
         )
         data = json.loads(response.data)
         self.assertEqual(response.status_code, 200)
@@ -164,7 +168,6 @@ class TriviaTestCase(unittest.TestCase):
         response = self.client().put('/quizzes')
         self.assertEqual(response.status_code, 405)
         
-
 
 # Make the tests conveniently executable
 if __name__ == "__main__":
